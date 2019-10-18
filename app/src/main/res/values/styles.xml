@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="toolbarTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/actionBackground</item>
+        <item name="android:textColorPrimary">@color/actionTextColor</item>
+        <item name="actionMenuTextColor">@color/actionTextColor</item>
+        <item name="colorButtonNormal">@color/actionTextColor</item>
+        <item name="colorControlNormal">@color/actionTextColor</item>
+    </style>
+
+    <style name="toolbarTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/actionTextSize</item>
+    </style>
+
+    <style name="toolbarPopupTheme" parent="@style/Theme.AppCompat">
+        <item name="android:colorBackground">@color/actionBackground</item>
+        <item name="overlapAnchor">false</item>
+    </style>
+
+</resources>

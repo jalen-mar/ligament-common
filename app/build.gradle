@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.jalen-mar'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    api 'com.github.jalen-mar:ligament:0.0.8'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.dagger:dagger:2.24'
+    implementation 'com.google.dagger:dagger-android:2.24'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0'
+}
