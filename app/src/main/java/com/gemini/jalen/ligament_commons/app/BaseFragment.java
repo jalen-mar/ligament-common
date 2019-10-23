@@ -29,7 +29,9 @@ public class BaseFragment<T extends ViewDataBinding> extends GeneralFragment<T> 
 
     @Override
     public void onAttach(@NonNull Context context) {
-        AndroidSupportInjection.inject(this);
+        if (isSupportIOC()) {
+            AndroidSupportInjection.inject(this);
+        }
         super.onAttach(context);
     }
 
@@ -38,6 +40,10 @@ public class BaseFragment<T extends ViewDataBinding> extends GeneralFragment<T> 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         loader = new Loader();
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    protected boolean isSupportIOC() {
+        return true;
     }
 
     @Override

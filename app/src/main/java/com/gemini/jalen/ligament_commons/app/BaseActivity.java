@@ -37,7 +37,9 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
+        if (isSupportIOC()) {
+            AndroidInjection.inject(this);
+        }
         loader = new Loader();
         super.onCreate(savedInstanceState);
         initToolbar(toolbar = findViewById(R.id.toolLayout));
@@ -113,6 +115,10 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
     }
 
     protected boolean getContentBelowParent() {
+        return true;
+    }
+
+    protected boolean isSupportIOC() {
         return true;
     }
 
