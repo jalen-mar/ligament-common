@@ -14,9 +14,9 @@
         app:contentInsetLeft="@dimen/no"
         app:contentInsetStart="@dimen/no"
         app:titleTextAppearance="@style/toolbarTextAppearance"
-        android:background="?attr/colorPrimary"
-        android:layout_height="?attr/actionBarSize"
-        android:minHeight="?attr/actionBarSize">
+        android:background="?android:attr/colorPrimary"
+        android:layout_height="?android:attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize">
 
         <TextView android:textColor="@color/actionTextColor"
             android:textSize="@dimen/actionTextSize"
