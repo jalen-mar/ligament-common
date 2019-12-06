@@ -1,5 +1,6 @@
 package com.gemini.jalen.ligament_commons.app;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
     public static int ACTION_UNABLE = 0;
     public static int ACTION_TITLE = 1;
     public static int ACTION_NAVIGATION = 2;
+    public static int ACTION_NAVIGATION_CENTER = 3;
 
     protected Loader loader;
     protected Toolbar toolbar;
@@ -49,7 +51,7 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
         int type = enableToolbar();
         if (type > ACTION_UNABLE) {
             setSupportActionBar(toolbar);
-            if (type == ACTION_TITLE) {
+            if (type == ACTION_TITLE || type == ACTION_NAVIGATION_CENTER) {
                 getSupportActionBar().setDisplayShowTitleEnabled(false);
                 ((TextView) toolbar.findViewById(R.id.tvTitle)).setText(getTitleValue());
             } else {
@@ -60,9 +62,13 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
             if (background != -1) {
                 toolbar.setBackgroundColor(getResources().getColor(background));
             }
-            if (type == ACTION_NAVIGATION) {
+            if (type == ACTION_NAVIGATION || type == ACTION_NAVIGATION_CENTER) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 toolbar.setNavigationOnClickListener(this);
+                Drawable drawable = getNavigationIcon();
+                if (drawable != null) {
+                    toolbar.setNavigationIcon(drawable);
+                }
             }
         } else {
             toolbar.setVisibility(View.GONE);
@@ -71,6 +77,10 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
 
     protected int enableToolbar() {
         return ACTION_NAVIGATION;
+    }
+
+    protected Drawable getNavigationIcon() {
+        return null;
     }
 
     protected String getTitleValue() {
