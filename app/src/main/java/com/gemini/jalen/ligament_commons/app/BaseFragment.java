@@ -30,9 +30,13 @@ public class BaseFragment<T extends ViewDataBinding> extends GeneralFragment<T> 
     @Override
     public void onAttach(@NonNull Context context) {
         if (isSupportIOC()) {
-            AndroidSupportInjection.inject(this);
+            inject();
         }
         super.onAttach(context);
+    }
+
+    protected void inject() {
+        AndroidSupportInjection.inject(this);
     }
 
     @Nullable

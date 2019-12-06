@@ -40,11 +40,15 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         if (isSupportIOC()) {
-            AndroidInjection.inject(this);
+            inject();
         }
         loader = new Loader();
         super.onCreate(savedInstanceState);
         initToolbar(toolbar = findViewById(R.id.toolLayout));
+    }
+
+    protected void inject() {
+        AndroidInjection.inject(this);
     }
 
     private void initToolbar(Toolbar toolbar) {
