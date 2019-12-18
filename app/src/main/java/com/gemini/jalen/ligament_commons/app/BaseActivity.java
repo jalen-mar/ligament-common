@@ -64,7 +64,7 @@ public class BaseActivity<T extends ViewDataBinding> extends GeneralActivity<T> 
             }
             int background = getTitleBackground();
             if (background != -1) {
-                toolbar.setBackgroundColor(getResources().getColor(background));
+                toolbar.setBackgroundResource(background);
             }
             if (type == ACTION_NAVIGATION || type == ACTION_NAVIGATION_CENTER) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
